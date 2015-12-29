@@ -65,11 +65,11 @@ setting()->save(); //remember, without this the settings will not be stored on d
 
 **get(string key, mixed default=null) : mixed** - Get a setting on database, if doens't exists it will use the default value.
 
-**set(string|array key, value=null) : void** - Set a value or array of key=>values to the settings.
+**set(string|array key, mixed value=null) : void** - Set a value or array of key=>values to the settings.
 
 **forget(string key) : void** - Clear an value of the settings.
 
-**has(key) : bool** - Check if settings has a given key.
+**has(string key) : bool** - Check if settings has a given key.
 
 **all() : array** - Get an array of all settings.
 
