@@ -1,0 +1,15 @@
+{
+    "name": "vluzrmos/eloquent-settings",
+    "description": "An Eloquent Settings Repository",
+    "require": {
+        "illuminate/support": "~5.0",
+        "illuminate/database": "~5.0",
+        "illuminate/config": "~5.0"
+    },
+    "authors": [
+        {
+            "name": "Vagner do Carmo",
+            "email": "vluzrmos@gmail.com"
+        }
+    ]
+}
