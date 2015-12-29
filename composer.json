@@ -2,6 +2,7 @@
     "name": "vluzrmos/eloquent-settings",
     "description": "An Eloquent Settings Repository",
     "license": "MIT",
+    "keywords" : ["Eloquent", "Settings", "Laravel"],
     "require": {
         "illuminate/support": "~5.0",
         "illuminate/database": "~5.0",
