@@ -138,7 +138,13 @@ class Setting
             $keys = func_get_args();
         }
 
-        return array_only($this->getData(), $keys);
+        $data = [];
+
+        foreach($keys as $key) {
+            array_set($data, $key, $this->get($key));
+        }
+
+        return $data;
     }
 
     /**
