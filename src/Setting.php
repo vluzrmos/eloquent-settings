@@ -40,7 +40,7 @@ class Setting
 
     /**
      * @param string $key
-     * @param mixed  $default
+     * @param mixed $default
      *
      * @return array
      */
@@ -140,7 +140,7 @@ class Setting
 
         $data = [];
 
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             array_set($data, $key, $this->get($key));
         }
 
@@ -180,4 +180,33 @@ class Setting
             $this->unsaved = false;
         }
     }
+
+    /**
+     * Sets and saves one or more settings.
+     *
+     * @param string|array $key Name of key or array of key-value-pairs.
+     * @param string|null $value Value if $key is a string.
+     */
+    public function update($key, $value = null)
+    {
+        if (!is_array($key)) {
+            $key = [$key => $value];
+        }
+
+        $this->massAssign($key);
+        $this->save();
+    }
+
+    /**
+     * Mass assigns an array of key value pairs.
+     *
+     * @param array $keys Array of key-value-pairs.
+     */
+    protected function massAssign($keys)
+    {
+        foreach ($keys as $key => $value) {
+            $this->set($key, $value);
+        }
+    }
+
 }
