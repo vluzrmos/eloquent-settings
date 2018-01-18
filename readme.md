@@ -78,3 +78,5 @@ setting()->save(); //remember, without this the settings will not be stored on d
 **only(string|array keys ...) : array** - Get settings which match with that given keys.
 
 **save() : void** - **IMPORTANT!** Store settings on the database.
+
+**update(string|array keys, mixed value=null) : void** - Sets and saves one or more settings.

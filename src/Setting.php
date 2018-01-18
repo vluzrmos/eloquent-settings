@@ -185,7 +185,7 @@ class Setting
      * Sets and saves one or more settings.
      *
      * @param string|array $key Name of key or array of key-value-pairs.
-     * @param string|null $value Value if $key is a string.
+     * @param mixed|null $value Value if $key is a string. Default is null.
      */
     public function update($key, $value = null)
     {
