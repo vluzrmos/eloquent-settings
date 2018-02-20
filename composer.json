@@ -1,25 +1,36 @@
 {
-    "name": "vluzrmos/eloquent-settings",
-    "description": "An Eloquent Settings Repository",
-    "license": "MIT",
-    "keywords" : ["Eloquent", "Settings", "Laravel"],
-    "require": {
-        "illuminate/support": "~5.0",
-        "illuminate/database": "~5.0",
-        "illuminate/config": "~5.0"
-    },
-    "authors": [
-        {
-            "name": "Vagner do Carmo",
-            "email": "vluzrmos@gmail.com"
-        }
-    ],
-    "autoload" : {
-        "psr-4" : {
-            "Vluzrmos\\EloquentSettings\\": "src/"
-        },
-        "files" : [
-            "src/helpers.php"
-        ]
+  "name": "vluzrmos/eloquent-settings",
+  "description": "An Eloquent Settings Repository",
+  "license": "MIT",
+  "keywords": [
+    "Eloquent",
+    "Settings",
+    "Laravel"
+  ],
+  "require": {
+    "illuminate/support": "~5.0",
+    "illuminate/database": "~5.0",
+    "illuminate/config": "~5.0"
+  },
+  "authors": [
+    {
+      "name": "Vagner do Carmo",
+      "email": "vluzrmos@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Vluzrmos\\EloquentSettings\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Vluzrmos\\EloquentSettings\\Providers\\EloquentSettingsServiceProvider"
+      ]
+    }
+  }
 }
