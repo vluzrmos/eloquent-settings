@@ -4,6 +4,7 @@ namespace Vluzrmos\EloquentSettings;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Vluzrmos\EloquentSettings\Models\Option;
 
@@ -41,12 +42,11 @@ class Setting
     /**
      * @param string $key
      * @param mixed $default
-     *
      * @return array
      */
     public function get($key, $default = null)
     {
-        return array_get($this->getData(), $key, $default);
+        return Arr::get($this->getData(), $key, $default);
     }
 
     /**
@@ -65,7 +65,6 @@ class Setting
 
     /**
      * @param Collection $collection
-     *
      * @return array
      */
     protected function parseCollection(Collection $collection)
@@ -73,7 +72,7 @@ class Setting
         $data = [];
 
         foreach ($collection as $option) {
-            array_set($data, $option->key, $option->value);
+            Arr::set($data, $option->key, $option->value);
         }
 
         return $data;
@@ -90,7 +89,7 @@ class Setting
         $rows = is_array($key) ? $key : [$key => $value];
 
         foreach ($rows as $k => $v) {
-            array_set($data, $k, $v);
+            Arr::set($data, $k, $v);
         }
 
         $this->data = $data;
@@ -99,12 +98,11 @@ class Setting
 
     /**
      * @param string $key
-     *
      * @return bool
      */
     public function has($key)
     {
-        return array_has($this->all(), $key);
+        return Arr::has($this->all(), $key);
     }
 
     /**
@@ -117,19 +115,17 @@ class Setting
 
     /**
      * @param $key
-     *
      * @return $this
      */
     public function forget($key)
     {
-        array_forget($this->data, $key);
+        Arr::forget($this->data, $key);
 
         $this->unsaved = true;
     }
 
     /**
      * @param $keys
-     *
      * @return array
      */
     public function only($keys)
@@ -141,7 +137,7 @@ class Setting
         $data = [];
 
         foreach ($keys as $key) {
-            array_set($data, $key, $this->get($key));
+            Arr::set($data, $key, $this->get($key));
         }
 
         return $data;
@@ -149,7 +145,6 @@ class Setting
 
     /**
      * @param array|string $keys
-     *
      * @return array
      */
     public function except($keys)
@@ -158,7 +153,7 @@ class Setting
             $keys = func_get_args();
         }
 
-        return array_except($this->getData(), $keys);
+        return Arr::except($this->getData(), $keys);
     }
 
     /**
@@ -169,7 +164,7 @@ class Setting
         if ($this->unsaved) {
             $all = $this->getData();
 
-            $data = array_dot($all);
+            $data = Arr::dot($all);
 
             foreach ($data as $key => $value) {
                 $this->options->updateOrCreate(compact('key'), compact('key', 'value'));
@@ -183,7 +178,6 @@ class Setting
 
     /**
      * Sets and saves one or more settings.
-     *
      * @param string|array $key Name of key or array of key-value-pairs.
      * @param mixed|null $value Value if $key is a string. Default is null.
      */
@@ -199,7 +193,6 @@ class Setting
 
     /**
      * Mass assigns an array of key value pairs.
-     *
      * @param array $keys Array of key-value-pairs.
      */
     protected function massAssign($keys)
