@@ -3,14 +3,14 @@
   "description": "An Eloquent Settings Repository",
   "license": "MIT",
   "keywords": [
-    "Eloquent",
-    "Settings",
-    "Laravel"
+    "laravel",
+    "eloquent",
+    "settings"
   ],
   "require": {
-    "illuminate/support": "~5.0",
-    "illuminate/database": "~5.0",
-    "illuminate/config": "~5.0"
+    "php": ">=7.0.0",
+    "illuminate/support": ">=5.5.0",
+    "illuminate/database": ">=5.5.0"
   },
   "authors": [
     {

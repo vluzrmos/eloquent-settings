@@ -8,26 +8,17 @@ A package to store settings of your application on database.
     
 # Configuration
 
-First, you have to add the service provider in your `config/app.php` providers list:
-
-```php
-'providers' => [
-    ...
-    \Vluzrmos\EloquentSettings\Providers\EloquentSettingsServiceProvider::class,
-],
-```
-
-Second, you have to publish the configs and migrations:
+First, you have to publish the configs and migrations:
 
     php artisan vendor:publish --provider=Vluzrmos\EloquentSettings\Providers\EloquentSettingsServiceProvider
 
-Third, run the migrations:
+Second, run the migrations:
 
     php artisan migrate
     
 # Usage
 
-You can use the dependencie injection or the `setting` helper:
+You can use the dependency injection or the `setting` helper:
 
 ```php
 use \Vluzrmos\EloquentSettings\Setting;
